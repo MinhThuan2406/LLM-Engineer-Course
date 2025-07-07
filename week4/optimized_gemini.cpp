@@ -5,18 +5,18 @@
 #include <iomanip>
 #include <vector>
 
-// Linear Congruential Generator
+// Linear congruential generator
 uint64_t lcg(uint64_t seed, uint64_t a = 1664525, uint64_t c = 1013904223, uint64_t m = 4294967296) { // 2^32
     return (a * seed + c) % m;
 }
 
-// Maximum Subarray Sum
+// Maximum subarray sum
 int64_t max_subarray_sum(int n, uint64_t seed, int min_val, int max_val) {
     std::vector<int> random_numbers(n);
     uint64_t current_seed = seed;
     for (int i = 0; i < n; ++i) {
         current_seed = lcg(current_seed);
-        random_numbers[i] = (static_cast<int>(current_seed) % (max_val - min_val + 1)) + min_val;
+        random_numbers[i] = (current_seed % (max_val - min_val + 1)) + min_val;
     }
     int64_t max_sum = std::numeric_limits<int64_t>::min();
     for (int i = 0; i < n; ++i) {
@@ -31,7 +31,7 @@ int64_t max_subarray_sum(int n, uint64_t seed, int min_val, int max_val) {
     return max_sum;
 }
 
-// Total Maximum Subarray Sum
+// Total maximum subarray sum
 int64_t total_max_subarray_sum(int n, uint64_t initial_seed, int min_val, int max_val) {
     int64_t total_sum = 0;
     uint64_t current_seed = initial_seed;
@@ -55,7 +55,6 @@ int main() {
     auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
 
     std::cout << "Total Maximum Subarray Sum (20 runs): " << result << std::endl;
-    std::cout << "Execution Time: " << std::fixed << std::setprecision(6) << duration.count() / 1000000.0 << " seconds" << std::endl;
-
+    std::cout << "Execution Time: " << std::fixed << std::setprecision(6) << (double)duration.count() / 1000000.0 << " seconds" << std::endl;
     return 0;
 }
