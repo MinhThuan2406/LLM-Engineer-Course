@@ -1,0 +1,1 @@
+Geoffrey Hinton is a British-Canadian cognitive psychologist and computer scientist, most noted for his work on artificial neural networks. He is a Turing Award winner and a pioneer in deep learning.

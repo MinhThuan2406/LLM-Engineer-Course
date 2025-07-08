@@ -1,0 +1,1 @@
+The MNIST database is a large collection of handwritten digits that is commonly used for training various image processing systems. It contains 60,000 training images and 10,000 testing images.
